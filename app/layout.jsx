@@ -1,5 +1,10 @@
-import './globals.css'
-
+import "./globals.css";
+import { Montserrat } from "@next/font/google";
+const montserrat = Montserrat({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -8,7 +13,9 @@ export default function RootLayout({ children }) {
         head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body className={`${montserrat.className} mx-32 my-10 bg-black`}>
+        {children}
+      </body>
     </html>
-  )
+  );
 }
